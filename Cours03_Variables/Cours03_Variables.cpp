@@ -460,7 +460,7 @@ int main()
 
 	std::cout << "Moyenne des 3 nombres : " << moyenneNombres << "\n";
 
-	std::cout << "\n\n" << "* *****Exercice 02 * *****" << "\n" << "Calcule Rectangle" << "\n\n";
+	std::cout << "\n\n" << "****** Exercice 02 ******" << "\n" << "Calcule Rectangle" << "\n\n";
 
 
 	int longueurRectangle = 12;
@@ -472,7 +472,11 @@ int main()
 	std::cout << "Perimetre du rectangle : " << perimetreRectangle << "\n";
 	std::cout << "air du rectangle : " << airRectangle << "\n";
 
+	std::cout << "\n\n" << "****** Exercice 03 ******" << "\n" << "  Volume Sphere  " << "\n\n";
 
+	int rayonSphere = 6;
+	double pi = ;
+	double volumeSphere;
 
 
 	// TODO: Faire le reste du Devoir et remettre avant la date sur Léa
