@@ -510,7 +510,7 @@ std::cout << "\n\n" << "****** Exercice 01 ******" << "\n" << "Moyenne de 3 nomb
 
 	double grandeurPersonne = 1.75;
 	int poidsPersonnelbs = 160;
-	double poidsPersonneKg = 160 / 2.2;
+	double poidsPersonneKg = poidsPersonnelbs / 2.2;
 
 
 	double calculBMI = poidsPersonneKg / (grandeurPersonne * grandeurPersonne);
@@ -532,7 +532,7 @@ std::cout << "\n\n" << "****** Exercice 01 ******" << "\n" << "Moyenne de 3 nomb
 
 	// Conversion de température
 	int farenheit = 75;
-	double celcius = farenheit - 32 * 5 / 9;
+	double celcius = (farenheit - 32) * 5 / 9;
 	std::cout << "degres Fahrenheit equivalent a " << celcius << " degres Celsius" << "\n\n";
 
 	// Calcul de l'âge en jours
@@ -542,10 +542,10 @@ std::cout << "\n\n" << "****** Exercice 01 ******" << "\n" << "Moyenne de 3 nomb
 	std::cout << "Age en jours : " << jours << "\n\n";
 
 	// Calcul de l'aire d'un triangle
-	int baseDuTriangle = 8;
-	int hauteurDuTriangle = 6;
-	double airDuTriangle = (baseDuTriangle * hauteurDuTriangle) / 2;
-	std::cout << "L'aire du triangle est : " << airDuTriangle << "\n\n";
+	int baseTriangle = 8;
+	int hauteurTriangle = 6;
+	double airTriangle = (baseTriangle * hauteurTriangle) / 2;
+	std::cout << "L'aire du triangle est : " << airTriangle << "\n\n";
 
 	// --------------------------------------------------------------------------------------------------
 
@@ -570,8 +570,8 @@ std::cout << "\n\n" << "****** Exercice 01 ******" << "\n" << "Moyenne de 3 nomb
 	int hauteurPiece = 3;
 	int cannePeinture = 8;
 
-		int surfaceMurs = (hauteurPiece * longueurPiece) *  2 + (largeurPiece * hauteurPiece) * 2;
-		int surfacePlafond = (longueurPiece * largeurPiece);
+		double surfaceMurs = (hauteurPiece * longueurPiece) *  2 + (largeurPiece * hauteurPiece) * 2;
+		double surfacePlafond = (longueurPiece * largeurPiece);
 
 		double cannesMurs = surfaceMurs / cannePeinture;
 		double cannesMursEtPlafond = (surfacePlafond / cannePeinture) + cannesMurs;
@@ -586,7 +586,7 @@ std::cout << "\n\n" << "****** Exercice 01 ******" << "\n" << "Moyenne de 3 nomb
 		// --------------------------------------------------------------------------------------------------
 
 
-		std::cout << "\n\n" << "****** Exercice 08 ******" << "\n" << "Calculer les montants obtenus pour un investissement " << "\n\n";
+		std::cout << "\n\n" << "****** Exercice 09 ******" << "\n" << "Calculer les montants obtenus pour un investissement " << "\n\n";
 
 		int montantInitial = 2000;
 		
