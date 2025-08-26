@@ -1,4 +1,11 @@
 // TODO: Ajouter un en-tête
+/*
+
+    Auteur      : Hugo Pelletier
+    Date        : 2025-08-25
+    Description : Introduction à la programmation
+
+*/
 
 #include <iostream>
 
