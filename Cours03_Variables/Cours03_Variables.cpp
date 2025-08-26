@@ -215,6 +215,11 @@ int main()
 
 // TODO: Déclarer une variable de chaque type (100, 5.25, 'Z')
 
+	
+	int variable1 = 100;
+	double variable2 = 5.25;
+	char variable3 = 'Z';
+
 
 // Erreur E0020) Espaces manquant entre le type de variable et le nom de variable
 //intmaVariableSansEspace = 10;
@@ -274,28 +279,28 @@ int main()
 	// Le prix d’un billet est 12.5 $ et 4 billets ont été vendus au client
 	// 
 	// double prix_Billet = 12.5;
-	double prix_Billet = 12.5;
+	double prixBilletCinema = 12.5;
 
 	// int nbDeBil = 4;
-	int nbDeBil = 4;
+	int nombreDeBillet = 4;
 
 	// double LePrixTotal = 50.0;
-	double LePrixTotal = 50.0;
+	double lePrixTotalCinema = 50.0;
 
 	// Problème 2 : Moyenne de la température extérieure
 	// La température extérieure du matin est 15.2°C, de l'après-midi 23.8°C et du soir 20.5°
 	// 
 	// double matin = 15.2;
-	double matin = 15.2;
+	double temperatureMatin = 15.2;
 
 	// double tempAprem = 23.8;
-	double tempAprem = 23.8;
+	double temperatureApresMidi = 23.8;
 
 	// double Temperaturesoir = 20.5;
-	double Temperaturesoir = 20.5;
+	double temperatureSoir = 20.5;
 
 	// double valeurTemperature = 19.8;
-	double valeurTemperature = 19.8;
+	double moyenneTemperature = 19.8;
 
 	// Problème 2 : Jeu vidéo
 	// Un jeu vidéo doit enregistrer les informations du joueur.
@@ -305,22 +310,22 @@ int main()
 	// - 100 or et 3 potions
 
 	// int Score = 1000;
-	int Score = 1000;
+	int pointsJoueur = 1000;
 
 	// int lesVies = 3;
-	int lesVies = 3;
+	int viesJoueur = 3;
 
 	// int NIVEAUACTUEL = 1;
-	int NIVEAUACTUEL = 1;
+	int niveauJoueurActuel = 1;
 
 	//int lvlMax = 10;
-	int lvlMax = 10;
+	int niveauMaxJoueur = 10;
 
 	//int montantDeLor = 100;
-	int montantDeLor = 100;
+	int OrJoueur = 100;
 
 	// int p = 3;
-	int p = 3;
+	int potionsJoueur = 3;
 
 #pragma endregion
 
