@@ -517,32 +517,92 @@ std::cout << "\n\n" << "****** Exercice 01 ******" << "\n" << "Moyenne de 3 nomb
 	
 	std::cout << "Calcul du BMI = " << calculBMI << "\n";
 
-	// --------------------------------------------------------------------------------------------------
-
-
-	std::cout << "\n\n" << "****** Exercice 06 ******" << "\n" << "Correction programme" << "\n\n";
+	 
 
 	// Calcul du volume du cylindre
 	int rayonCylindre = 5;
 	int hauteurCylindre = 10;
 	double volumeCylindre = 3.14159 * (rayonCylindre * rayonCylindre) * hauteurCylindre;
-	std::cout << "Le volume du cylindre est : " << volumeCylindre << "\n";
+	std::cout << "Le volume du cylindre est : " << volumeCylindre << "\n\n";
 
 	// Calcul du prix total du cylindre par volume
 	double prixCylindre = 12.99;
 	double total = volumeCylindre * prixCylindre;
-	std::cout << "Le prix total est : " << total << "\n";
+	std::cout << "Le prix total est : " << total << "\n\n";
 
 	// Conversion de température
 	int farenheit = 75;
 	double celcius = farenheit - 32 * 5 / 9;
-	std::cout << "degrés Fahrenheit équivalent à" << celcius << "degrés Celsius";
+	std::cout << "degres Fahrenheit equivalent a " << celcius << " degres Celsius" << "\n\n";
 
 	// Calcul de l'âge en jours
-	int année = 25;
-	int MOIS = 3
-	int	jours = année * 365 + MOIS * 30;
-	Console.WriteLine("Age en jours : " + jrs);
+	int annee = 25;
+	int mois = 3;
+	double jours = annee * 365 + mois * 30;
+	std::cout << "Age en jours : " << jours << "\n\n";
+
+	// Calcul de l'aire d'un triangle
+	int baseDuTriangle = 8;
+	int hauteurDuTriangle = 6;
+	double airDuTriangle = (baseDuTriangle * hauteurDuTriangle) / 2;
+	std::cout << "L'aire du triangle est : " << airDuTriangle << "\n\n";
+
+	// --------------------------------------------------------------------------------------------------
+
+
+	std::cout << "\n\n" << "****** Exercice 07 ******" << "\n" << "Calculer la note finale " << "\n\n";
+
+	double devoirs = 80 * 20 * 0.01;
+	double miSession = 70 * 30 * 0.01;
+	double final = 90 * 50 * 0.01;
+	double noteFinale = devoirs + miSession + final;
+
+	std::cout << "Note finale de etudiant : " << noteFinale << "%\n\n";
+
+
+	// --------------------------------------------------------------------------------------------------
+
+
+	std::cout << "\n\n" << "****** Exercice 08 ******" << "\n" << "informations pour peinturer une piece  " << "\n\n";
+
+	int longueurPiece = 5;
+	int largeurPiece = 4;
+	int hauteurPiece = 3;
+	int cannePeinture = 8;
+
+		int surfaceMurs = (hauteurPiece * longueurPiece) *  2 + (largeurPiece * hauteurPiece) * 2;
+		int surfacePlafond = (longueurPiece * largeurPiece);
+
+		double cannesMurs = surfaceMurs / cannePeinture;
+		double cannesMursEtPlafond = (surfacePlafond / cannePeinture) + cannesMurs;
+
+		std::cout << "Surface murs seulement : " << surfaceMurs << "m^2 \n";
+		std::cout << "Surface plafond : " << surfacePlafond << "m^2 \n";
+		std::cout << "Cannes pour murs seulement : " << cannesMurs << "\n";
+		std::cout << "Cannes pour murs et plafond : " << cannesMursEtPlafond << "\n";
+	
+		
+		
+		// --------------------------------------------------------------------------------------------------
+
+
+		std::cout << "\n\n" << "****** Exercice 08 ******" << "\n" << "Calculer les montants obtenus pour un investissement " << "\n\n";
+
+		int montantInitial = 2000;
+		
+		double interetCompose = 0.05;
+		double annee1 = montantInitial * (1 + interetCompose);
+		double annee2 = annee1 * (1 + interetCompose);
+		double annee3 = annee2 * (1 + interetCompose);
+		double interetTotal = annee3 - montantInitial;
+
+
+		std::cout << "Montant initial : " << montantInitial << "$\n";
+		std::cout << "Montant apres annee 1 : " << annee1 << "$\n";
+		std::cout << "Montant apres annee 2 : " << annee2 << "$\n";
+		std::cout << "Montant apres annee 3 : " << annee3 << "$\n";
+		std::cout << "Interets totaux apres 3 ans : " << interetTotal << "$\n";
+
 
 
 }
