@@ -13,9 +13,11 @@
 
 #include <iostream>
 
+
+
 int main()
 {
-	std::cout << "--- Cours 03 - Variables ---\n";
+	/* std::cout << "--- Cours 03 - Variables ---\n";
 
 #pragma region Theorie
 
@@ -215,24 +217,24 @@ int main()
 
 // TODO: Déclarer une variable de chaque type (100, 5.25, 'Z')
 
-	
+
 	int variable1 = 100;
 	double variable2 = 5.25;
 	char variable3 = 'Z';
 
 
-// Erreur E0020) Espaces manquant entre le type de variable et le nom de variable
-//intmaVariableSansEspace = 10;
+	// Erreur E0020) Espaces manquant entre le type de variable et le nom de variable
+	//intmaVariableSansEspace = 10;
 
-// Erreur E0084) Utiliser un mot clé du langage comme nom de variable
-// https://learn.microsoft.com/fr-ca/cpp/cpp/keywords-cpp?view=msvc-170
-//int int = 10;
-//double double = 5.123;
-//char char = 'a';
+	// Erreur E0084) Utiliser un mot clé du langage comme nom de variable
+	// https://learn.microsoft.com/fr-ca/cpp/cpp/keywords-cpp?view=msvc-170
+	//int int = 10;
+	//double double = 5.123;
+	//char char = 'a';
 
-// Erreur de compilation) Définition 2 fois du même nom de variable
-//int maVariableDefiniePlusieursFois = 10;
-//int maVariableDefiniePlusieursFois = 20; // Erreur à la 2ème définition
+	// Erreur de compilation) Définition 2 fois du même nom de variable
+	//int maVariableDefiniePlusieursFois = 10;
+	//int maVariableDefiniePlusieursFois = 20; // Erreur à la 2ème définition
 #pragma endregion
 
 #pragma region NomenclatureVariables
@@ -449,9 +451,9 @@ int main()
 #pragma endregion
 
 	// TODO: Faire le premier exercice du Devoir ensemble
-
-	// **** Exercice 01 *****
-	// Moyenne de 3 nombres
+	*/
+std::cout << "\n\n" << "****** Exercice 01 ******" << "\n" << "Moyenne de 3 nombres" << "\n\n";
+	
 
 	double nombre1 = 81.42;
 	double nombre2 = -24.2;
@@ -460,25 +462,88 @@ int main()
 
 	std::cout << "Moyenne des 3 nombres : " << moyenneNombres << "\n";
 
+
+	// --------------------------------------------------------------------------------------------------
+
+
 	std::cout << "\n\n" << "****** Exercice 02 ******" << "\n" << "Calcule Rectangle" << "\n\n";
 
+	
 
 	int longueurRectangle = 12;
 	int largeurRectangle = 7;
 
-	int perimetreRectangle = (longueurRectangle * 2) + (largeurRectangle *2);
+	int perimetreRectangle = (longueurRectangle * 2) + (largeurRectangle * 2);
 	int airRectangle = longueurRectangle * largeurRectangle;
 
 	std::cout << "Perimetre du rectangle : " << perimetreRectangle << "\n";
 	std::cout << "air du rectangle : " << airRectangle << "\n";
 
-	std::cout << "\n\n" << "****** Exercice 03 ******" << "\n" << "  Volume Sphere  " << "\n\n";
+	// --------------------------------------------------------------------------------------------------
+
+
+
+	std::cout << "\n\n" << "****** Exercice 03 ******" << "\n" << "Volume Sphere" << "\n\n";
 
 	int rayonSphere = 6;
-	double pi = ;
-	double volumeSphere;
+	double pi = 3.1415926;
+	double volumeSphere = (4.0 / 3.0) * pi * (rayonSphere * rayonSphere * rayonSphere) ;
+
+	std::cout << "Volume de la sphere : " << volumeSphere << "\n";
 
 
-	// TODO: Faire le reste du Devoir et remettre avant la date sur Léa
+	// --------------------------------------------------------------------------------------------------
+
+	std::cout << "\n\n" << "****** Exercice 04 ******" << "\n" << "Convertir pouces en centimetres" << "\n\n";
+
+	double centimetre = 2.54;
+	int nombrePouce = 100;
+	double PouceEnCentimetre  = nombrePouce * centimetre;
+	double Metres = PouceEnCentimetre / 100;
+	std::cout << "Mesures equivalentes : \n" << "Pouces = " << nombrePouce << ", Centimetre = " << PouceEnCentimetre << " cm, Metres = " << Metres << " m\n";
+
+
+	// --------------------------------------------------------------------------------------------------
+
+
+	std::cout << "\n\n" << "****** Exercice 05 ******" << "\n" << "Calculer le BMI" << "\n\n";
+
+	double grandeurPersonne = 1.75;
+	int poidsPersonnelbs = 160;
+	double poidsPersonneKg = 160 / 2.2;
+
+
+	double calculBMI = poidsPersonneKg / (grandeurPersonne * grandeurPersonne);
+	
+	std::cout << "Calcul du BMI = " << calculBMI << "\n";
+
+	// --------------------------------------------------------------------------------------------------
+
+
+	std::cout << "\n\n" << "****** Exercice 06 ******" << "\n" << "Correction programme" << "\n\n";
+
+	// Calcul du volume du cylindre
+	int rayonCylindre = 5;
+	int hauteurCylindre = 10;
+	double volumeCylindre = 3.14159 * (rayonCylindre * rayonCylindre) * hauteurCylindre;
+	std::cout << "Le volume du cylindre est : " << volumeCylindre << "\n";
+
+	// Calcul du prix total du cylindre par volume
+	double prixCylindre = 12.99;
+	double total = volumeCylindre * prixCylindre;
+	std::cout << "Le prix total est : " << total << "\n";
+
+	// Conversion de température
+	int farenheit = 75;
+	double celcius = farenheit - 32 * 5 / 9;
+	std::cout << "degrés Fahrenheit équivalent à" << celcius << "degrés Celsius";
+
+	// Calcul de l'âge en jours
+	int année = 25;
+	int MOIS = 3
+	int	jours = année * 365 + MOIS * 30;
+	Console.WriteLine("Age en jours : " + jrs);
+
 
 }
+
