@@ -1,4 +1,4 @@
-// TODO: Ajouter un en-tête
+o	/// 2378359 : Modification de la maison (2025-08-26)
 /*
 
     Auteur      : Hugo Pelletier
