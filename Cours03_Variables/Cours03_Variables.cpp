@@ -450,6 +450,31 @@ int main()
 
 	// TODO: Faire le premier exercice du Devoir ensemble
 
+	// **** Exercice 01 *****
+	// Moyenne de 3 nombres
+
+	double nombre1 = 81.42;
+	double nombre2 = -24.2;
+	double nombre3 = 65.142;
+	double moyenneNombres = (nombre1 + nombre2 + nombre3) / 3;
+
+	std::cout << "Moyenne des 3 nombres : " << moyenneNombres << "\n";
+
+	std::cout << "\n\n" << "* *****Exercice 02 * *****" << "\n" << "Calcule Rectangle" << "\n\n";
+
+
+	int longueurRectangle = 12;
+	int largeurRectangle = 7;
+
+	int perimetreRectangle = (longueurRectangle * 2) + (largeurRectangle *2);
+	int airRectangle = longueurRectangle * largeurRectangle;
+
+	std::cout << "Perimetre du rectangle : " << perimetreRectangle << "\n";
+	std::cout << "air du rectangle : " << airRectangle << "\n";
+
+
+
+
 	// TODO: Faire le reste du Devoir et remettre avant la date sur Léa
 
 }
