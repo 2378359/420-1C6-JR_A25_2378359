@@ -12,12 +12,14 @@
 
 
 #include <iostream>
-
+#include <format>
+using namespace std;
 
 
 int main()
 {
-	/* std::cout << "--- Cours 03 - Variables ---\n";
+	/*
+	std::cout << "--- Cours 03 - Variables ---\n";
 
 #pragma region Theorie
 
@@ -449,10 +451,10 @@ int main()
 #pragma endregion
 
 #pragma endregion
-
+*/
 	// TODO: Faire le premier exercice du Devoir ensemble
-	*/
-std::cout << "\n\n" << "****** Exercice 01 ******" << "\n" << "Moyenne de 3 nombres" << "\n\n";
+	
+cout << "\n\n" << "****** Exercice 01 ******" << "\n" << "Moyenne de 3 nombres" << "\n\n";
 	
 
 	double nombre1 = 81.42;
@@ -460,13 +462,12 @@ std::cout << "\n\n" << "****** Exercice 01 ******" << "\n" << "Moyenne de 3 nomb
 	double nombre3 = 65.142;
 	double moyenneNombres = (nombre1 + nombre2 + nombre3) / 3;
 
-	std::cout << "Moyenne des 3 nombres : " << moyenneNombres << "\n";
-
+	cout << format("Moyenne des 3 nombres : {:.2f}\n", moyenneNombres);
 
 	// --------------------------------------------------------------------------------------------------
 
 
-	std::cout << "\n\n" << "****** Exercice 02 ******" << "\n" << "Calcule Rectangle" << "\n\n";
+cout << "\n\n" << "****** Exercice 02 ******" << "\n" << "Calcule Rectangle" << "\n\n";
 
 	
 
@@ -476,37 +477,37 @@ std::cout << "\n\n" << "****** Exercice 01 ******" << "\n" << "Moyenne de 3 nomb
 	int perimetreRectangle = (longueurRectangle * 2) + (largeurRectangle * 2);
 	int airRectangle = longueurRectangle * largeurRectangle;
 
-	std::cout << "Perimetre du rectangle : " << perimetreRectangle << "\n";
-	std::cout << "air du rectangle : " << airRectangle << "\n";
+	cout << "Perimetre du rectangle : " << perimetreRectangle << "\n";
+	cout << "air du rectangle : " << airRectangle << "\n";
 
 	// --------------------------------------------------------------------------------------------------
 
 
 
-	std::cout << "\n\n" << "****** Exercice 03 ******" << "\n" << "Volume Sphere" << "\n\n";
+	cout << "\n\n" << "****** Exercice 03 ******" << "\n" << "Volume Sphere" << "\n\n";
 
 	int rayonSphere = 6;
 	double pi = 3.1415926;
 	double volumeSphere = (4.0 / 3.0) * pi * (rayonSphere * rayonSphere * rayonSphere) ;
 
-	std::cout << "Volume de la sphere : " << volumeSphere << "\n";
+	cout << "Volume de la sphere : " << volumeSphere << "\n";
 
 
 	// --------------------------------------------------------------------------------------------------
 
-	std::cout << "\n\n" << "****** Exercice 04 ******" << "\n" << "Convertir pouces en centimetres" << "\n\n";
+	cout << "\n\n" << "****** Exercice 04 ******" << "\n" << "Convertir pouces en centimetres" << "\n\n";
 
 	double centimetre = 2.54;
 	int nombrePouce = 100;
 	double PouceEnCentimetre  = nombrePouce * centimetre;
 	double Metres = PouceEnCentimetre / 100;
-	std::cout << "Mesures equivalentes : \n" << "Pouces = " << nombrePouce << ", Centimetre = " << PouceEnCentimetre << " cm, Metres = " << Metres << " m\n";
+	cout << "Mesures equivalentes : \n" << "Pouces = " << nombrePouce << ", Centimetre = " << PouceEnCentimetre << " cm, Metres = " << Metres << " m\n";
 
 
 	// --------------------------------------------------------------------------------------------------
 
 
-	std::cout << "\n\n" << "****** Exercice 05 ******" << "\n" << "Calculer le BMI" << "\n\n";
+	cout << "\n\n" << "****** Exercice 05 ******" << "\n" << "Calculer le BMI" << "\n\n";
 
 	double grandeurPersonne = 1.75;
 	int poidsPersonnelbs = 160;
@@ -515,7 +516,7 @@ std::cout << "\n\n" << "****** Exercice 01 ******" << "\n" << "Moyenne de 3 nomb
 
 	double calculBMI = poidsPersonneKg / (grandeurPersonne * grandeurPersonne);
 	
-	std::cout << "Calcul du BMI = " << calculBMI << "\n";
+	cout << "Calcul du BMI = " << calculBMI << "\n";
 
 	 
 
@@ -523,47 +524,46 @@ std::cout << "\n\n" << "****** Exercice 01 ******" << "\n" << "Moyenne de 3 nomb
 	int rayonCylindre = 5;
 	int hauteurCylindre = 10;
 	double volumeCylindre = 3.14159 * (rayonCylindre * rayonCylindre) * hauteurCylindre;
-	std::cout << "Le volume du cylindre est : " << volumeCylindre << "\n\n";
+	cout << "Le volume du cylindre est : " << volumeCylindre << "\n\n";
 
 	// Calcul du prix total du cylindre par volume
 	double prixCylindre = 12.99;
 	double total = volumeCylindre * prixCylindre;
-	std::cout << "Le prix total est : " << total << "\n\n";
+	cout << "Le prix total est : " << total << "\n\n";
 
 	// Conversion de température
 	int farenheit = 75;
 	double celcius = (farenheit - 32) * 5 / 9;
-	std::cout << "degres Fahrenheit equivalent a " << celcius << " degres Celsius" << "\n\n";
+	cout << "degres Fahrenheit equivalent a " << celcius << " degres Celsius" << "\n\n";
 
 	// Calcul de l'âge en jours
 	int annee = 25;
 	int mois = 3;
 	double jours = annee * 365 + mois * 30;
-	std::cout << "Age en jours : " << jours << "\n\n";
+	cout << "Age en jours : " << jours << "\n\n";
 
 	// Calcul de l'aire d'un triangle
 	int baseTriangle = 8;
 	int hauteurTriangle = 6;
 	double airTriangle = (baseTriangle * hauteurTriangle) / 2;
-	std::cout << "L'aire du triangle est : " << airTriangle << "\n\n";
+	cout << "L'aire du triangle est : " << airTriangle << "\n\n";
 
 	// --------------------------------------------------------------------------------------------------
 
 
-	std::cout << "\n\n" << "****** Exercice 07 ******" << "\n" << "Calculer la note finale " << "\n\n";
+	cout << "\n\n" << "****** Exercice 07 ******" << "\n" << "Calculer la note finale " << "\n\n";
 
 	double devoirs = 80 * 20 * 0.01;
 	double miSession = 70 * 30 * 0.01;
 	double final = 90 * 50 * 0.01;
 	double noteFinale = devoirs + miSession + final;
 
-	std::cout << "Note finale de etudiant : " << noteFinale << "%\n\n";
-
+	cout << format("Note finale de etudiant : {:.2f}%\n", noteFinale);
 
 	// --------------------------------------------------------------------------------------------------
 
 
-	std::cout << "\n\n" << "****** Exercice 08 ******" << "\n" << "informations pour peinturer une piece  " << "\n\n";
+	cout << "\n\n" << "****** Exercice 09 ******" << "\n" << "informations pour peinturer une piece  " << "\n\n";
 
 	int longueurPiece = 5;
 	int largeurPiece = 4;
@@ -576,17 +576,17 @@ std::cout << "\n\n" << "****** Exercice 01 ******" << "\n" << "Moyenne de 3 nomb
 		double cannesMurs = surfaceMurs / cannePeinture;
 		double cannesMursEtPlafond = (surfacePlafond / cannePeinture) + cannesMurs;
 
-		std::cout << "Surface murs seulement : " << surfaceMurs << "m^2 \n";
-		std::cout << "Surface plafond : " << surfacePlafond << "m^2 \n";
-		std::cout << "Cannes pour murs seulement : " << cannesMurs << "\n";
-		std::cout << "Cannes pour murs et plafond : " << cannesMursEtPlafond << "\n";
+		cout << "Surface murs seulement : " << surfaceMurs << "m^2 \n";
+		cout << "Surface plafond : " << surfacePlafond << "m^2 \n";
+		cout << format("Cannes pour murs et plafond : {:.2f}\n", cannesMurs);
+		cout << format("Cannes pour murs et plafond : {:.2f}\n", cannesMursEtPlafond);
 	
 		
 		
 		// --------------------------------------------------------------------------------------------------
 
 
-		std::cout << "\n\n" << "****** Exercice 09 ******" << "\n" << "Calculer les montants obtenus pour un investissement " << "\n\n";
+		cout << "\n\n" << "****** Exercice 10 ******" << "\n" << "Calculer les montants obtenus pour un investissement " << "\n\n";
 
 		int montantInitial = 2000;
 		
@@ -597,11 +597,11 @@ std::cout << "\n\n" << "****** Exercice 01 ******" << "\n" << "Moyenne de 3 nomb
 		double interetTotal = annee3 - montantInitial;
 
 
-		std::cout << "Montant initial : " << montantInitial << "$\n";
-		std::cout << "Montant apres annee 1 : " << annee1 << "$\n";
-		std::cout << "Montant apres annee 2 : " << annee2 << "$\n";
-		std::cout << "Montant apres annee 3 : " << annee3 << "$\n";
-		std::cout << "Interets totaux apres 3 ans : " << interetTotal << "$\n";
+		cout << "Montant initial : " << montantInitial << "$\n";
+		cout << "Montant apres annee 1 : " << annee1 << "$\n";
+		cout << "Montant apres annee 2 : " << annee2 << "$\n";
+		cout << "Montant apres annee 3 : " << annee3 << "$\n";
+		cout << "Interets totaux apres 3 ans : " << interetTotal << "$\n";
 
 
 
