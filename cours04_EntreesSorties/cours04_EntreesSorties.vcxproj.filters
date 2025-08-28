@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Users\Hugop\Downloads\Cours04_EntreesSorties_Etudiant.cpp">
+    <ClCompile Include="Cours4Entree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
