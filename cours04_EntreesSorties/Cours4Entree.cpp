@@ -50,7 +50,7 @@ using namespace std;
 int main()
 {
 	// TODO: Rajouter la configuration de la locale ici pour fixer les caractère du titre
-	setlocale(LC_ALL, "fr_CA.UTF-8");
+	setlocale(LC_ALL, "");
 
 	cout << "--- Cours 04 - Entrées et sorties ---\n";
 
@@ -71,7 +71,7 @@ int main()
 	cout << "\n--- Locales ---\n";
 
 	string accents = "à, é, è, ç, ...";
-	cout << "Par défaut du système d'exploitation (ASCII) : " << accents << "\n";
+	/*cout << "Par défaut du système d'exploitation (ASCII) : " << accents << "\n";
 
 	// Forcer la locale à celle configurée par défaut dans le système d'exploitation
 	setlocale(LC_ALL, "");
@@ -368,9 +368,104 @@ int main()
 	// 3) 
 	std::cout << format("(int)(1.75 * 2 + 5) = {}\n", (int)(1.75 * 2 + 5.5));
 
-#pragma endregion
-
+#pragma endregion*/
 	// TODO: Faire le Devoir et remettre avant la date de remise sur Léa
+
+	// *** Exercice ## (ex. 01) ****
+	// corriger les erreurs de troncation dans les équations afin d’obtenir les résultats en nombre à virgules 
+
+	double a = 10.0 + 12.0 / 8.0;				// 11.5	
+	double b = 27.0 + 3.0 / 14.0;				// 27.21
+	double c = (10.0 + 20.0 + 30.0 + 40.0 + 50.0) / 11.0;	// 13.636
+	int cPartieEntiere = (int)c;			// 13
+	double d = (180.0 / 7.0) + c / 2.0;			// 32,2142...		
+	double e = (cPartieEntiere + 3.0) / 15.0;		// 1.0666...
+
+	std::cout << format("a = {:.2f}\n", a);
+	std::cout << format("b = {:.5f}\n", b);
+	std::cout << format("c = {:.3f}\n", c);
+	std::cout << format("d = {:.1f}\n", d);
+	std::cout << format("e = {:.8f}\n", e);
+
+	// *** Exercice ## (ex. 02) ****
+	// Un programme qui lit les information d’une équation polynomiale 
+	
+	cout << "a3 + b2 + c = ?\n";
+
+	cout << "Entrer la valeur de a : ";
+	cin >> a;
+	cout << "Entrer la valeur de b : ";
+	cin >> b;
+	cout << "Entrer la valeur de c : ";
+	cin >> c;
+
+	double total = (a * a * a) + (b * b) + c;
+
+	std::cout << format("{:.1f}^3 + {:.1f}^2 + {:.1f} = {:.3f}\n", a, b, c, total);
+
+	// *** Exercice ## (ex. 03) ****
+	// programme qui lit une commande de 3 articles pour une facture avec le nom de l’
+	// article, le coût unitaire et la quantité achetée et 
+	// retourne le total avec taxes.
+
+	int numeroFacture;
+	string nomClient;
+	string nomArticle1;
+	double coutArticle1;
+	int quantiteArticle1;
+	string nomArticle2;
+	double coutArticle2;
+	int quantiteArticle2;
+	string nomArticle3;
+	double coutArticle3;
+	int quantiteArticle3;
+
+		cout << "\nNuméro de facture : ";
+		cin >> numeroFacture;
+		cout << "\nNom du client : ";
+		cin >> nomClient;
+		cout << "\nNom de l'article 1 : ";
+		cin >> nomArticle1;
+		cout << "\nCoût de l'article 1 : ";
+		cin >> coutArticle1;
+		cout << "\nQuantité : ";
+		cin >> quantiteArticle1;
+		cout << "\nNom de l'article 2 : ";
+		cin >> nomArticle2;
+		cout << "\nCoût unitaire : ";
+		cin >> coutArticle2;
+		cout << "\nQuantité : ";
+		cin >> quantiteArticle2;
+		cout << "\nNom de l'article 3 : ";
+		cin >> nomArticle3;
+		cout << "\nCoût unitaire : ";
+		cin >> coutArticle3;
+		cout << "\nQuantité : ";
+		cin >> quantiteArticle3;
+
+		cout << "Facture : " << numeroFacture << "\n";
+		cout << "CLient : " << nomClient << "\n\n";
+		double totalArt1 = coutArticle1 * quantiteArticle1;
+		double totalArt2 = coutArticle2 * quantiteArticle2;
+		double totalArt3 = coutArticle3 * quantiteArticle3;
+		double sousTotal = coutArticle1 + coutArticle2 + coutArticle3;
+		double tps = sousTotal * 0.05;
+		double tvq = sousTotal * 0.0975;
+		double totalFacture = sousTotal + tps + tvq;
+		cout << "Nom de l'article\tCoût\t\tQuantité\tSous-total\n";
+
+		std::cout << format("{}\t\t{:.2f}$\t\t\t{}\t\t{:.2f}$\n", nomArticle1, coutArticle1, quantiteArticle1, totalArt1);
+		std::cout << format("{}\t\t{:.2f}$\t\t\t{}\t\t{:.2f}$\n", nomArticle2, coutArticle2, quantiteArticle2, totalArt2);
+		std::cout << format("{}\t\t{:.2f}$\t\t\t{}\t\t{:.2f}$\n\n", nomArticle3, coutArticle3, quantiteArticle3, totalArt3);
+
+		std::cout << format("Sous-total\t\t\t\t{:.2f}\n\n", sousTotal);
+		
+		std::cout << format("TPS 5%\t\t\t\t{:.2f}$\n", tps);
+		std::cout << format("TVQ 9.975%\t\t\t{:.2f}$\n\n", tvq);
+		std::cout << format("Total \t\t\t\t\t\t\t{:.2f}$", totalFacture);
+
+
+
 
 
 } // Fin de la fonction main(), ne pas supprimer
