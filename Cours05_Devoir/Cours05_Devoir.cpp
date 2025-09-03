@@ -22,7 +22,7 @@ int main()
     bool estExercice2Actif = false;
     bool estExercice3Actif = false;
     bool estExercice4Actif = false;
-    bool estExercice5Actif = true;
+    bool estExercice5Actif = false;
 
     // Exercice 01
 
@@ -239,12 +239,75 @@ int main()
 
         cout << "Catégories disponibles (affaire, premium, economie)\n\n Entrer une catégorie : ";
         cin >> categorie;
-
-        if (categorie != "affaire")
+        int siege;
+        double prixAffaire = 5000;
+        double prixPremium = 2500;
+        double prixEconomieArriere = 1500;
+        double prixEconomieAvant = 1200;
+        if (categorie == "affaire")
         {
-
+            cout << "\n\nSélectionner un siège affaire [1 à 20] : ";
+            cin >> siege;
+            if (siege > 20)
+            {
+                cout << format("\n\nErreur : pour la classe {} le numéro de siège {} est invalide, réservation annulée.", categorie, siege);
+            }
+            else if (siege < 1)
+            {
+                cout << format("\n\nErreur : pour la classe {} le numéro de siège {} est invalide, réservation annulée.", categorie, siege);
+            }
+            else
+            {
+                cout << format("classe\t\t\t: {}\nSiège\t\t\t: {}\nPrix du billet\t\t: {:.2f}$", categorie, siege, prixAffaire);
+            }
         }
+        else if (categorie == "premium")
+        {
+            cout << "\n\nSélectionner un siège premium [21 à 50] : ";
+            cin >> siege;
 
+            if (siege > 50)
+            {
+                cout << format("\n\nErreur : pour la classe {} le numéro de siège {} est invalide, réservation annulée.", categorie, siege);
+            }
+            else if (siege < 21)
+            {
+                cout << format("\n\nErreur : pour la classe {} le numéro de siège {} est invalide, réservation annulée.", categorie, siege);
+            }
+            else
+            {
+                cout << format("classe\t\t\t: {}\nSiège\t\t\t: {}\nPrix du billet\t\t: {:.2f}$", categorie, siege, prixPremium);
+            }
+        }
+        else if (categorie == "economie")
+        {
+            cout << "\n\nSélectionner un siège économie [51 à 150] : ";
+            cin >> siege;
+
+            if (siege > 150)
+            {
+                cout << format("\n\nErreur : pour la classe {} le numéro de siège {} est invalide, réservation annulée.", categorie, siege);
+            }
+            else if (siege < 51)
+            {
+                cout << format("\n\nErreur : pour la classe {} le numéro de siège {} est invalide, réservation annulée.", categorie, siege);
+            }
+            else
+            {
+                if (siege >= 101)
+                {
+                    cout << format("classe\t\t\t: {}\nSiège\t\t\t: {}\nPrix du billet\t\t: {:.2f}$", categorie, siege, prixEconomieArriere);
+                }
+                else
+                {
+                    cout << format("classe\t\t\t: {}\nSiège\t\t\t: {}\nPrix du billet\t\t: {:.2f}$", categorie, siege, prixEconomieAvant);
+                }
+               
+            }
+        }
+        else
+        {
+            cout << format("Erreur : la catégorie {} n’existe pas, réservation annulée.", categorie);
+        }
     }
-
 }
