@@ -20,10 +20,20 @@ const double MON_DOUBLE_CONSTANT = 10.123;
 const char MON_CARACTERE_CONTANT = 'a';
 const string MA_CHAINE_CONSTANTE = "bonjour";
 
+
+const int MONTANT_INITIAL = 1000;
+const double PAIEMENT_TAXE = 0.15;
+const double REMBOURSEMENT_MINIMUM = 499.99;
+const char CHOIX_PAIEMENT_MINUSCULE = 'p';
+const char CHOIX_PAIEMENT_MAJUSCULE = 'P';
+
+const char CHOIX_REMBOURSEMENT_MINUSCULE = 'r';
+const char CHOIX_REMBOURSEMENT_MAJUSCULE = 'R';
+
 int main()
 {
     // Configuration de la console en Unicode pour les accents
-    setlocale(LC_ALL, "fr_CA.UTF-8");
+    setlocale(LC_ALL, "");
 
     // Affichage de l'en-tête
     cout << "--- Cours 07 - Switch ---\n";
@@ -241,24 +251,26 @@ int main()
 
     // 3) Erreur de logique avec 'break' manquant
     // C26819: Il existe un fallthrough non annoté entre les étiquettes de Switch
-    switch (nombre)
-    {
-    case 0:
-        cout << "Erreur de break manquant (case 0)\n";
-        // break; manquant, continue au prochain case
-    case 1:
-        cout << "Erreur de break manquant (case 1)\n";
-        // break; manquant, continue au prochain case
-    default:
-        cout << "Erreur de break manquant (default)\n";
-        // break; manquant, techniquement non nécessaire car on est déjà à la fin
-    }
+    //switch (nombre)
+    //{
+    //case 0:
+    //    cout << "erreur de break manquant (case 0)\n";
+    //    // break; manquant, continue au prochain case
+    //case 1:
+    //    cout << "erreur de break manquant (case 1)\n";
+    //    // break; manquant, continue au prochain case
+    //default:
+    //    cout << "erreur de break manquant (default)\n";
+    //    // break; manquant, techniquement non nécessaire car on est déjà à la fin
+    //}
 
     // *** Exemple de switch ***
     // Afficher le menu de conversion de température
     cout << "\n --- Conversion de température ---\n\n";
-    cout << "c) Celsius\n";
+    cout << "c) Celsius\n"; 
     cout << "f) Farenheit\n";
+
+
 
     // Lire le choix de conversion de l'utilisateur à la Console
     cout << "\nEntre le format de la température : ";
@@ -266,8 +278,23 @@ int main()
     cin >> choixTemperature;
 
     // TODO: Convertir la température du 'nombre' seulement selon le choix de l'utilisateur avec un switch
-    cout << format("Celsius : {}\n", nombre * 9.0 / 5.0 + 32);
+
+    switch (choixTemperature)
+    {
+    case 'C':
+    case 'c':
+        cout << format("Celsius : {}\n", nombre * 9.0 / 5.0 + 32);
+        break;
+
+    case 'F':
+    case 'f':
     cout << format("Farenheit : {}\n", (nombre - 32) * 5.0 / 9.0);
+        break;
+
+    default:
+        cout << format("{} n'est pas valide", choixTemperature);
+        break;
+    }
 
 
 #pragma endregion
@@ -330,25 +357,32 @@ int main()
     //      - C2361 : l'initialisation de 'resultat' est ignorée par l'étiquette 'default'
     //      - C2360 : l'initialisation de 'resultat' est ignorée par l'étiquette 'case'
     //      - C2361 : l'initialisation de 'bonus' est ignorée par l'étiquette 'default'
-    //switch (nombre)
-    //{
-    //case 0:
-    //    int resultat = nombre + 100;
-    //    cout << format("Resultat pour le nombre {} : {}\n", nombre, resultat);
-    //    break;
-    //case 1:
-    //    int resultat = nombre * 10 + 2000;
-    //    int bonus = 10000;
-    //    cout << format("Resultat pour le nombre {} : {}\n", nombre + bonus, resultat);
-    //    break;
-    //default:
-    //    int resultat = nombre + 1000;
-    //    cout << format("Resultat pour le nombre {} : {}\n", nombre, resultat);
-    //    break;
-    //}
 
     // TODO: Fixer l'erreur en ajoutant un Scope par case
 
+    int resultat = 0;
+
+    switch (nombre)
+    {
+    case 0:
+    
+        resultat = nombre + 100;
+        break;
+
+    case 1:
+    
+        resultat = nombre * 10 + 2000;
+        resultat += 10000;
+        break;
+   
+    default:
+    
+        resultat = nombre + 1000;
+        break;
+
+    }
+
+    cout << format("Resultat pour le nombre {} : {}\n", nombre, resultat);
 
     // TODO: Fixer l'erreur en déclarant une variable avant le switch et message après switch
 
@@ -372,44 +406,41 @@ int main()
     //      - Habituellement définies dans des fichiers de configuration
     //      - Pour l'instant, définir dans la zone de variables globales avant la fonction main() 
     // 
-    // const int MON_ENTIER_CONSTANT = 10;
-    // const double MON_DOUBLE_CONSTANT = 10.123;
-    // const char MON_CARACTERE_CONTANT = 'a';
-    // const string MA_CHAINE_CONSTANTE = "bonjour";
+    
 
     // TODO: Conventir les 'nombres magiques' du code suivant en constantes globables
-
     // Afficher le menu
     cout << format("\n--- Menu des constantes ---\n\n");
-    cout << format("p) Paiement\n");
-    cout << format("r) Remboursement\n");
+    cout << format("{} Paiement\n", CHOIX_PAIEMENT_MINUSCULE);
+    cout << format("{} Remboursement\n", CHOIX_REMBOURSEMENT_MINUSCULE);
 
     // Lire le choix du menu de l'utilisateur
     cout << "\nEntrer le choix : ";
     char choixMenu;
     cin >> choixMenu;
 
+
     switch (choixMenu)
     {
-    case 'p':
-    case 'P':
+    case  CHOIX_PAIEMENT_MINUSCULE:
+    case  CHOIX_PAIEMENT_MAJUSCULE:
     {
-        double total = 1000 + nombre;
-        double taxe = total * 0.15;
+        double total = MONTANT_INITIAL + nombre;
+        double taxe = total * PAIEMENT_TAXE;
         cout << format("Total du paiment : {:.2f}\n", total);
         cout << format("Taxe : {:.2f}\n", taxe);
     }
     break;
 
-    case 'r':
-    case 'R':
+    case CHOIX_REMBOURSEMENT_MINUSCULE:
+    case CHOIX_REMBOURSEMENT_MAJUSCULE:
     {
-        double total = 1000 - nombre;
+        double total = MONTANT_INITIAL - nombre;
 
         // Afficher un message si le total est en bas du minimum et mettre au minimum
-        if (total < 499.99)
+        if (total < REMBOURSEMENT_MINIMUM)
         {
-            cout << format("Remboursement {:.2f} a été fixé au minimum : {:.2f}\n", total, 499.99);
+            cout << format("Remboursement {:.2f} a été fixé au minimum : {:.2f}\n", total, REMBOURSEMENT_MINIMUM);
         }
 
         cout << format("Total du remboursement : {:.2f}\n", total);
