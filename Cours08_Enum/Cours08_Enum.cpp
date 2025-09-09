@@ -1,7 +1,7 @@
 /*
 	Auteur			: Hugo Pelletier
 	Date			: 2025-09-09
-	Description		: cours 07 Enum
+	Description		: cours 08 Enum
 */
 
 // Inclusion des librairies
@@ -20,9 +20,9 @@ const int TEMPERATURE_CELSIUS_FACTEUR = 9.0 / 5.0;
 const int TEMPERATURE_FARENHEIT_FACTEUR = 5.0 / 9.0;
 
 // enum Couleur est équivalent à déclarer les 3 constantes entières
-int COULEUR_ROUGE = 0;
-int COULEUR_VERT = 1;
-int COULEUR_BLEU = 2;
+const int COULEUR_ROUGE = 0;
+const int COULEUR_VERT = 1;
+const int COULEUR_BLEU = 2;
 
 // *** Enums ***
 // Nomenclature : PascalCase
@@ -65,6 +65,12 @@ enum Raccourci
 	CollerMajuscule = 'V',
 };
 
+enum Calcul
+{
+	Simple = 0,
+	Exposnat2 = 1,
+	Exposnat3 = 1000,
+};
 // *** Erreurs ***
 // 1) Impossible d'avoir 2 enums avec le même nom
 //enum Couleur
@@ -97,6 +103,9 @@ enum Raccourci
 //	DeuxPoints = 60,
 //	Virgule = 70,
 //} // Erreur
+
+const double EPSILON = 0.000001;
+
 
 int main()
 {
@@ -139,6 +148,9 @@ int main()
 
 	// Lire un nombre à la Console
 	cout << "Entrer un nombre à calculer (0, 1, 1000) : ";
+	cout << format("Entrer un nombre à calculer ({}, {}, {}) : ", (int)Calcul::Simple, (int)Calcul::Exposnat2, (int)Calcul::Exposnat3);
+
+
 	int nombre;
 	cin >> nombre;
 
@@ -148,17 +160,17 @@ int main()
 	// Effectuer le calcul et afficher le message selon le nombre entré par l'utilisateur
 	switch (nombre)
 	{
-	case 0:
+	case Calcul::Simple:
 		resultat += nombre;
 		cout << format("Choix {} : Message seulement pour 0\n", nombre);
 		break;
 
-	case 1:
+	case Calcul::Exposnat2:
 		resultat += nombre * nombre;
 		cout << format("Choix {} : Message seulement pour 1\n", nombre);
 		break;
 
-	case 1000:
+	case Calcul::Exposnat3:
 		resultat += nombre * nombre * nombre;
 		cout << format("Choix {} : Message seulement pour 1000\n", nombre);
 		break;
@@ -167,6 +179,8 @@ int main()
 		cout << format("Choix {} : n'est pas un choix valide\n", nombre);
 		break;
 	}
+
+
 
 	// Afficher le résultat si le nombre entré n'est pas une erreur
 	if (resultat != -1)
@@ -187,19 +201,31 @@ int main()
 	char choixTemperature;
 	cin >> choixTemperature;
 
+
+	enum Temperature
+	{
+
+		Celcius = 'c',
+		CelciusMajuscule = 'C',
+		Farenheit = 'f',
+		FarenheitMajuscule = 'F',
+
+	};
+
+
 	// Calculer la températeur selon le choix de l'utilisateur
 	switch (choixTemperature)
 	{
-	case 'c':
-	case 'C':
+	case Temperature::Celcius:
+	case Temperature::CelciusMajuscule:
 	{
 		double celsius = nombre * TEMPERATURE_CELSIUS_FACTEUR + TEMPERATURE_FARENHEIT_ZERO;
 		cout << format("Celsius : {}\n", celsius);
 	}
 	break;
 
-	case 'f':
-	case 'F':
+	case Temperature::Farenheit:
+	case Temperature::FarenheitMajuscule:
 	{
 		double farenheit = (nombre - TEMPERATURE_FARENHEIT_ZERO) * TEMPERATURE_FARENHEIT_FACTEUR;
 		cout << format("Farenheit : {}\n", farenheit);
@@ -244,36 +270,41 @@ int main()
 
 	if (sommeX == y)
 	{
-		cout << format("Sans epsilon - Nombres {} et {} sont considérés égaux.", sommeX, y);
+		cout << format("Sans epsilon - Nombres {} et {} sont considérés égaux.\n", sommeX, y);
 	}
 	else
 	{
-		cout << format("Sans epsilon - Nombres {} et {} sont considérés différents.", sommeX, y);
+		cout << format("Sans epsilon - Nombres {} et {} sont considérés différents.\n", sommeX, y);
 	}
 
 	// Soustraire plutôt les nombres et comparer avec une différence maximale acceptable (EPSILON)
 
 	// TODO: Définir une constante EPSILON avec la ifférence maximale acceptable
-	const double epsilon = 0.000001;
 
 	// TODO: Calculer la valeur absolue de la différence des 2 nombres à virgule
 	// | (0.300000004 - 0.3) |
-
+	double difference = sommeX - y;
+	if (difference < 0)
+	{
+		difference *= -1;
+	}
 
 	// TODO: Vérifier que la différence des 2 nombres ne dépasse pas la limite définie (EPSILON)
 	// | (0.300000004 - 0.3) | < 0.000001 = true
+	bool estInferieurEpsilon = difference < EPSILON;
+
 
 	// TODO: Afficher la différence obtenue
-	// cout << format("Doubles avec epsilon : ({} - {}) < {} = {}\n", sommeX, y, EPSILON, estInferieurEpsilon);
+	cout << format("Doubles avec epsilon : ({} - {}) < {} = {}\n", sommeX, y, EPSILON, estInferieurEpsilon);
 
 	// TODO: Effectuer un travail différent avec la comparaison EPSILON au lieu de l'égalité (==)
 	if (sommeX == y)
 	{
-		cout << format("Avec epsilon - Nombres {} et {} sont considérés égaux.", sommeX, y);
+		cout << format("Avec epsilon - Nombres {} et {} sont considérés égaux.\n", sommeX, y);
 	}
 	else
 	{
-		cout << format("Avec epsilon - Nombres {} et {} sont considérés différents.", sommeX, y);
+		cout << format("Avec epsilon - Nombres {} et {} sont considérés différents.\n", sommeX, y);
 	}
 #pragma endregion
 
@@ -312,6 +343,11 @@ int main()
 	// - Texte		: "Succès" ou "Erreur"
 	// - Couleur	: Couleur::Vert ou Couleur::Rouge
 
+	bool estNombreValide = nombre >= 0 && nombre <= 100;
+
+	int code = estNombreValide ? 0 : -1;
+	string message = estNombreValide ? "Succès" : "Erreur";
+	int couleur = estNombreValide ? Couleur::Vert : Couleur::Rouge;
 
 #pragma endregion
 }
