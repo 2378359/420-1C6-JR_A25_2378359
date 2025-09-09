@@ -1,7 +1,10 @@
 // TODO: Avant de créer le Projet, faire un 'git clone' ou un 'git pull' si dossier Git est déjà présent
 
-// TODO: Ajouter un en-tête
-
+/*
+    Auteur			: Hugo Pelletier
+    Date			: 2025-09-09
+    Description		: cours 07 Switch
+*/
 
 // Inclusion des librairies
 // TODO: Modifier la version du Projet à C++20 pour la librairie <format>
