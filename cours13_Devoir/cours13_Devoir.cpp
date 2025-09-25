@@ -87,18 +87,33 @@ int main()
 
 		while (true)
 		{
-			cout << format("Entrer un retrait ({:.2f} $ restant) ou - 1 pour terminer : ", argent);
+			cout << format("\nEntrer un retrait ({:.2f} $ restant) ou - 1 pour terminer : ", argent);
 			cin >> retrait;
 
-			if (retrait < -1 || retrait == 0)
+			if (cin.fail()) {
+				cout << "\nErreur : nombre invalide.\n";
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			}
+			else if (retrait < -1 || retrait == 0)
 			{
 				cout << format("\nErreur : impossible de retirer {:.2f} $, le montant doit être un nombre positif.\n\n", retrait);
 				continue;
 			}
 			else if (retrait > argent)
 			{
-
+				cout << format("\nErreur : impossible de retirer {:.2f} compte contient uniquement {:.2f} $", retrait, argent);
+				continue;
 			}
+
+			if (retrait == -1)
+			{
+				cout << format("\nRetraits terminés, total restant dans le compte : {:.2f} $", argent);
+				return 0;
+			}
+
+			argent = argent - retrait;
+
 		}
 	}
 }
