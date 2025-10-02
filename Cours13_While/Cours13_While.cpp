@@ -130,7 +130,7 @@ int main()
 	// - Supprimer les espaces et lignes vides que l'utilisateur a pu entrer par erreur
 
 	// TODO: Lire un nombre entier et arrêter lorsque le nombre est valide
-	if (true)
+	if (false)
 	{
 		cout << "--- Lire un nombre ---\n\n";
 
@@ -263,7 +263,7 @@ int main()
 	}
 
 	// TODO: Ajouter une condition de fin au Hello World lorsque l'utilisateur entre la valeur 10
-	if (false)
+	if (true)
 	{
 		cout << "--- Hello world avec do ... while() ---\n";
 		int nombre; // initialisation non nécessaire
