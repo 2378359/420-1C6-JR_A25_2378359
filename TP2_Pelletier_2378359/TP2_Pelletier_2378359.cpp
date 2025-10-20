@@ -8,6 +8,7 @@
 #include <format>
 #include <iostream>
 #include <string>
+#include <cmath>
 using namespace std;
 
 enum Operation
@@ -26,18 +27,30 @@ enum Operation
 
 int main()
 {
-	setlocale(LC_ALL, "en_US");
+	setlocale(LC_ALL, "en_US.UTF - 8");
 
 #pragma region Menu
 	bool estChoixValide = false;
-	bool afficherOperation = false;
+	bool afficherOperation = true;
 
 	string operation = "";
+	string calcul = "";
 
 	double resultat = 0.0;
 	double totalOperation = 0.0;
 	double nombre = 0.0;
 	double nombreOperation;
+	double aire;
+	double hypotenuse;
+	double perimetre;
+	double hauteur;
+	double largeur;
+	double x = 0;
+	double n = 0;
+	double somme = 0.0;
+	double puissance = 1.0;
+	double factorielle = 1.0;
+	double total = 0.0;
 	do
 	{
 		cout << "\n***********************************************************\n"
@@ -45,10 +58,11 @@ int main()
 			<< "*             Par Votre Hugo (Votre 2378359)              *\n"
 			<< "***********************************************************\n\n";
 
-		if (afficherOperation == true)
-		{
 			cout << operation;
-		}
+			operation = "";
+
+			cout << calcul;
+			calcul = "";
 
 		cout << format("Résultat : {}\n\n", resultat);
 		cout << "+) Addition\n" // Opérations qui utilisent le résultat dans le calcul
@@ -80,68 +94,379 @@ int main()
 
 				switch (choixMenu)
 				{
+					// Les opérations simples
 				case Operation::Addition:
-					cout << "Entrer un nombre : ";
-					cin >> nombreOperation;
+					while (true)
+					{
+						cout << "Entrer un nombre : ";
+						cin >> nombreOperation;
+						if (cin.fail())
+						{
+							cout << "Erreur : nombre invalide, doit être un nombre à virgule !\n";
+							cin.clear();
+							cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+						}
+						else
+							break;
+					}
+
 					totalOperation = resultat + nombreOperation;
 					break;
 
 				case Operation::Soustraction:
-					cout << "Entrer un nombre : ";
-					cin >> nombreOperation;
+					while (true)
+					{
+						cout << "Entrer un nombre : ";
+						cin >> nombreOperation;
+						if (cin.fail())
+						{
+							cout << "Erreur : nombre invalide, doit être un nombre à virgule !\n";
+							cin.clear();
+							cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+						}
+						else
+							break;
+					}
+
 					totalOperation = resultat - nombreOperation;
 					break;
 
 				case Operation::Multiplication:
-					cout << "Entrer un nombre : ";
-					cin >> nombreOperation;
+					while (true)
+					{
+						cout << "Entrer un nombre : ";
+						cin >> nombreOperation;
+						if (cin.fail())
+						{
+							cout << "Erreur : nombre invalide, doit être un nombre à virgule !\n";
+							cin.clear();
+							cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+						}
+						else
+							break;
+					}
+
 					totalOperation = resultat * nombreOperation;
 					break;
 
 				case Operation::Division:
-					cout << "Entrer un nombre : ";
-					cin >> nombreOperation;
-
+					while (true)
+					{
+						cout << "Entrer un nombre : ";
+						cin >> nombreOperation;
+						if (cin.fail())
+						{
+							cout << "Erreur : nombre invalide, doit être un nombre à virgule !\n";
+							cin.clear();
+							cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+						}
+						else
+							break;
+					}
 					if (nombreOperation == 0)
 					{
 						cout << "\nOpération annulée : impossible de diviser par 0 !\n\n";
-						cout << "Résultat : " << resultat << "\n\n";
+						estChoixValide = true;
 						continue;
 					}
+
 					totalOperation = resultat / nombreOperation;
 					break;
 
+					// Choix Exposant
 				case Operation::Exposant:
+
+					// Vérification du nombre choisi
+					while (true)
+					{
+						cout << "Entrer l'exposant : ";
+
+						cin >> nombreOperation;
+
+						if (cin.fail())
+						{
+							cout << "Erreur : exposant invalide, doit être un entier !\n";
+							cin.clear();
+							cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+						}
+						else
+							break;
+					}
+					if (resultat == 0 && nombreOperation < 0)
+					{
+						cout << "Opération annulée : impossible pour 0 d'avoir un exposant négatif !";
+						estChoixValide = true;
+						continue;
+					}
+					// Nombre 0, -1 et 1
+					if (nombreOperation == 0)
+					{
+						totalOperation = 1;
+					}
+					else if (nombreOperation == 1)
+					{
+						totalOperation = resultat;
+					}
+					else if (nombreOperation == -1)
+					{
+						totalOperation = nombreOperation / resultat;
+						totalOperation *= -1;
+					}
+					// Calcul de l'exposant choisi
+					else if (nombreOperation >= 2)
+					{
+						totalOperation = resultat;
+						for (int i = 1; i < nombreOperation; i++)
+						{
+							double premierNombre = totalOperation;
+							totalOperation *= resultat;
+							calcul += format("{} * {} = {}\n", premierNombre, resultat, totalOperation);
+						}
+					}
+					else
+					{
+						totalOperation = 1 / resultat;
+
+						for (int i = 1; i < -nombreOperation; i++)
+						{
+							double premierNombre = totalOperation;
+							totalOperation /= resultat;
+							calcul += format("{} / {} = {}\n", premierNombre, resultat, totalOperation);
+						}
+					}
 
 					break;
 
 				case Operation::Factorielle:
 
+					// Vérification du nombre choisi
+					while (true)
+					{
+						cout << "Entrer la factoriel : ";
+						cin >> nombreOperation;
+
+						if (cin.fail())
+						{
+							cout << "Erreur : nombre invalide, doit être un nombre à virgule !\n";
+							cin.clear();
+							cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+						}
+						else if (nombreOperation < 0)
+						{
+							cout << "Erreur : factorielle invalide, doit être un entier positif!\n";
+						}
+						else
+							break;
+					}
+					// Si nombre 0 et 1
+					if (nombreOperation == 0)
+					{
+						totalOperation = 1;
+					}
+					else if (nombreOperation == 1)
+					{
+						totalOperation = 1;
+					}
+					// Calcul de l'opération
+					else
+					{
+						totalOperation = 1;
+						for (int i = 1; i <= nombreOperation; i++)
+						{
+
+							double premierNombre = totalOperation;
+							totalOperation *= i;
+							calcul += format("{} * {} = {}\n", premierNombre, i, totalOperation);
+
+						}
+					}
+					// Écrase le résultat
+					resultat = totalOperation;
+					// N'affiche pas l'opération mais lui même
+					afficherOperation = false;
+					operation = format("\nOpération : {}! = {}\n\n", nombreOperation, resultat);
+
 					break;
 
 				case Operation::SerieDeTaylor:
+					
+					while (true)
+					{
+						cout << "Entrer le x de la série de Taylor :";
+						cin >> x;
 
+						if (cin.fail())
+						{
+							cout << "Erreur : x invalide doit être un nombre à virgule !\n";
+							cin.clear();
+							cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+						}
+						else
+							break;
+					}
+
+					while (true)
+					{
+						cout << "Entrer le n de la série de Taylor :";
+						cin >> x;
+
+						if (cin.fail() || n < 0)
+						{
+							cout << "Erreur : n invalide, doit être un nombre entier positif !\n";
+						}
+						else
+							break;
+					}
+					
+					
+					for (int i = 1; i <= n; i++)
+					{
+						calcul += format("+ ({}^{} / {}!)", x, i, i);
+						
+					}
+					for (int i = 1; i <= n; i++)
+					{
+						puissance *= x;
+						factorielle *= i;
+						total = puissance / factorielle;
+						somme += total;
+						calcul += format("+ {} / {})", puissance, factorielle);
+					}
+					
+					cout << somme;
+					afficherOperation = false;
 					break;
 
 				case Operation::Rectangle:
+					
+					// Vérification des valeurs entrées
+					while (true)
+					{
+						cout << "Entrer une hauteur : ";
+						cin >> hauteur;
 
+						if (cin.fail())
+						{
+							cout << "Erreur : hauteur doit être un nombre à virgule !\n";
+							cin.clear();
+							cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+						}
+						else if (hauteur <= 0)
+						{
+							cout << "Erreur : hauteur doit être plus grand que 0 !\n";
+						}
+						else
+							break;
+					}
+
+					while (true)
+					{
+						cout << "\nEntrer une largeur : ";
+						cin >> largeur;
+
+						if (cin.fail())
+						{
+							cout << "Erreur : largeur doit être un nombre à virgule !\n";
+							cin.clear();
+							cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+						}
+						else if (largeur <= 0)
+						{
+							cout << "Erreur : largeur doit être plus grand que 0 !\n";
+						}
+						else
+							break;
+					}
+
+					// Fait le rectangle avec la hauteur demandée
+					for (int i = 0; i < hauteur; i++)
+					{
+						for (int i = 0; i < largeur; i++)
+						{
+							cout << "* ";
+						}
+						cout << "\n";
+					}
+					cout << "\n";
+					// Calcul le tout
+					cout << "Aire\t  : " << hauteur * largeur << "\n";
+					cout << "Périmetre : " << (hauteur * 2) + (largeur * 2) << "\n";
+
+					system("pause");
+
+					// Cache l'opération et sort de la boucle
+					estChoixValide = true;
+					afficherOperation = false;
 					break;
 
 				case Operation::Triangle:
 
+					// Vérification des valeurs entrées
+					while (true)
+					{
+						cout << "Entrer une hauteur : ";
+						cin >> hauteur;
+
+						if (cin.fail())
+						{
+							cout << "Erreur : hauteur doit être un nombre à virgule !\n";
+							cin.clear();
+							cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+						}
+						else if (hauteur <= 0)
+						{
+							cout << "Erreur : hauteur doit être plus grand que 0 !\n";
+						}
+						else
+							break;
+					}
+
+					// Fait le triangle avec la hauteur demandée
+					for (int i = 0; i <= hauteur; i++)
+					{
+						for (int j = 1; j <= i; ++j)
+						{
+							cout << "* ";
+						}
+						cout << "\n";
+					}
+
+					// Fait les calculs
+					aire = (hauteur * hauteur) / 2;
+					hypotenuse = sqrt(hauteur * hauteur + hauteur * hauteur);
+					perimetre = hauteur + hauteur + hypotenuse;
+
+					cout << format("\nAire\t\t: {:.3f}\n", aire);
+					cout << format("Hypotenuse\t: {:.3}\n", hypotenuse);
+					cout << format("Périmetre\t: {:.3}\n\n", perimetre);
+
+					estChoixValide = true;
+					afficherOperation = false;
+
+					system("pause");
+
 					break;
 
 				case Operation::Quitter:
+					// Quitte
 					return 0;
 					break;
 
 				default:
 					break;
 				}
+				
+				// Sort de la boucle
 				estChoixValide = true;
+
+				// Affiche l'opération des opérateur valide
+				if (afficherOperation == true)
+				{
+					operation = format("Opération : {} {} {} = {}\n", resultat, choixMenu, nombreOperation, totalOperation);
+					resultat = totalOperation;
+				}
+				// Remet la valeur à vrai par défaut
 				afficherOperation = true;
-				operation = format("Opération : {} {} {} = {}\n", resultat, choixMenu, nombreOperation, totalOperation);
-				resultat = totalOperation;
 			}
 			else
 			{
@@ -164,7 +489,6 @@ int main()
 					cout << "La chaine convertie en nombre : " << nombre << "\n\n";
 
 					resultat = nombre;
-					afficherOperation = false;
 					estChoixValide = true;
 				}
 				catch (...)
@@ -173,11 +497,7 @@ int main()
 					cout << "Erreur : l'opération ou le nombre est invalide.\n";
 
 				}
-
-				
 			}
 		}
 	} while (true);
-#pragma
-
 }
