@@ -53,6 +53,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cours25_Modulo", "Cours25_M
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TP3_Pelletier_2378359", "TP3_Pelletier_2378359\TP3_Pelletier_2378359.vcxproj", "{C6B6214F-B91A-4341-89D4-9622CE61B722}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cours32_Tableau2D_Etudiant", "Cours32_Tableau2D_Etudiant\Cours32_Tableau2D_Etudiant.vcxproj", "{067A5764-DD92-467E-8D86-040C8C587D48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -261,6 +263,14 @@ Global
 		{C6B6214F-B91A-4341-89D4-9622CE61B722}.Release|x64.Build.0 = Release|x64
 		{C6B6214F-B91A-4341-89D4-9622CE61B722}.Release|x86.ActiveCfg = Release|Win32
 		{C6B6214F-B91A-4341-89D4-9622CE61B722}.Release|x86.Build.0 = Release|Win32
+		{067A5764-DD92-467E-8D86-040C8C587D48}.Debug|x64.ActiveCfg = Debug|x64
+		{067A5764-DD92-467E-8D86-040C8C587D48}.Debug|x64.Build.0 = Debug|x64
+		{067A5764-DD92-467E-8D86-040C8C587D48}.Debug|x86.ActiveCfg = Debug|Win32
+		{067A5764-DD92-467E-8D86-040C8C587D48}.Debug|x86.Build.0 = Debug|Win32
+		{067A5764-DD92-467E-8D86-040C8C587D48}.Release|x64.ActiveCfg = Release|x64
+		{067A5764-DD92-467E-8D86-040C8C587D48}.Release|x64.Build.0 = Release|x64
+		{067A5764-DD92-467E-8D86-040C8C587D48}.Release|x86.ActiveCfg = Release|Win32
+		{067A5764-DD92-467E-8D86-040C8C587D48}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
