@@ -1,0 +1,6 @@
+50000|main.cfgx|1000|0|1761019835|---|default=true;
+50001|system.cfg|1000|0|1761019835|---|timeout=3600;%0Aconnections=50;%0Asecure-login=off;
+50002|config.cfg|1000|2|1761019835|r-x|no-cache=true;%0Ano-lock=true;%0Ano-headers=true;
+50003|config.cfg|1001|3|1762179835|r-x|no-cache=true;%0Ano-lock=true;%0Ano-headers=true;
+50004|config.cfg|1002|4|1763179835|r-x|no-cache=true;%0Ano-lock=true;%0Ano-headers=true;
+50005|config.cfg|1003|5|1764179835|r-x|no-cache=true;%0Ano-lock=true;%0Ano-headers=true;
