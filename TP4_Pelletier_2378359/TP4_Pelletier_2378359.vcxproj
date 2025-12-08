@@ -139,6 +139,7 @@
     <ClInclude Include="Dossiers.h" />
     <ClInclude Include="Fichiers.h" />
     <ClInclude Include="Lecture.h" />
+    <ClInclude Include="TP4_Pelletier_2378359.h" />
     <ClInclude Include="Utilisateurs.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

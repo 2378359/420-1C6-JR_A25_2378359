@@ -1,5 +1,12 @@
-// TP4_Pelletier_2378359.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
-//
+/*
+
+	TP 4
+	Auteur : Hugo Pelletier
+	Matricule : 2378359
+	Date : 2025 - 12 - 01
+
+*/
+
 
 #include <iostream>
 #include <algorithm>
@@ -18,21 +25,43 @@
 
 int main()
 {
-	setlocale(LC_ALL, "en_US");
-	srand((unsigned int)time(0));
+    setlocale(LC_ALL, "en_US");
+    srand((unsigned int)time(0));
 
+    // Lis les fichiers
+    vector<Utilisateurs> utilisateurs = lireFichierUtilisateurs(FICHIER_UTILISATEUR);
+    vector<Dossiers> dossiers = lireFichierDossiers(FICHIER_DOSSIERS);
+    vector<Fichiers> fichiers = lireFichierFichiers(FICHIER_FICHIERS);
 
+    while (true)
+    {
+        // Afficher le menu avec les size() vector
+        afficherMenu(utilisateurs, dossiers, fichiers);
 
+        // Demander login
+        int idUser = rechercherUtilisateur(utilisateurs);
 
+        string prompt = " ";
+        int idDossier = 0;
+        genererChemin2(dossiers, idUser, prompt);
+
+        bool session = true;
+
+        while (session == true)
+        {
+            genererChemin2(dossiers, idUser, prompt);
+
+            string commande = "";
+            verifierCommande(commande, prompt);
+
+            if (commande == "exit")
+            {
+                session = false;
+                break;   // revient � la boucle globale -> nouvel �cran de login
+            }
+        }
+    }
 }
+  
 
-// Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
-// Déboguer le programme : F5 ou menu Déboguer > Démarrer le débogage
 
-// Astuces pour bien démarrer : 
-//   1. Utilisez la fenêtre Explorateur de solutions pour ajouter des fichiers et les gérer.
-//   2. Utilisez la fenêtre Team Explorer pour vous connecter au contrôle de code source.
-//   3. Utilisez la fenêtre Sortie pour voir la sortie de la génération et d'autres messages.
-//   4. Utilisez la fenêtre Liste d'erreurs pour voir les erreurs.
-//   5. Accédez à Projet > Ajouter un nouvel élément pour créer des fichiers de code, ou à Projet > Ajouter un élément existant pour ajouter des fichiers de code existants au projet.
-//   6. Pour rouvrir ce projet plus tard, accédez à Fichier > Ouvrir > Projet et sélectionnez le fichier .sln.

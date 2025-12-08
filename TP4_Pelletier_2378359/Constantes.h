@@ -13,6 +13,7 @@ struct Dossiers
 	string nomDossier = "";
 	int identifiantProprietaire = -1;
 	int identifiantDossierParent = -1;
+	double timestamp = -1.0;
 	string permissions = "";
 };
 
@@ -21,4 +22,15 @@ struct Utilisateurs
 	int identifiantUtilisateur = -1;
 	string nomUtilisateur = "";
 	string motDePasse = "";
+};
+
+struct Fichiers 
+{
+	int identifiantFichier = -1;
+	string nomFichier = "";
+	int identifiantProprietaire = -1;
+	int identifiantDossierParent = -1;
+	double timestamp = -1.0;
+	string permissions = "";
+	string contenuTexte = "";
 };
