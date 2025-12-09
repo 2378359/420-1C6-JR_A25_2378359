@@ -6,6 +6,7 @@ using namespace std;
 const string FICHIER_UTILISATEUR = "utilisateurs.csv";
 const string FICHIER_DOSSIERS = "dossiers.txt";
 const string FICHIER_FICHIERS = "fichiers.txt";
+const int NOMBRE_ARGUMENT_ATTENDU = 2;
 
 struct Dossiers
 {
@@ -34,3 +35,4 @@ struct Fichiers
 	string permissions = "";
 	string contenuTexte = "";
 };
+

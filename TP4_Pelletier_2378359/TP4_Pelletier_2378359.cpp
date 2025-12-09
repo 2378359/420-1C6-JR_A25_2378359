@@ -57,7 +57,22 @@ int main()
             if (commande == "exit")
             {
                 session = false;
-                break;   // revient à la boucle globale -> nouvel écran de login
+                break;   // revient à la boucle écran de login
+            }
+
+
+            if (commande == "help")
+            {
+                commandeExit(idUser);
+            }
+
+            if (commande == "ls")
+            {
+                commandeLs(dossiers, fichiers, idUser);
+            }
+
+            if (commande == "cd")
+            {
             }
         }
     }

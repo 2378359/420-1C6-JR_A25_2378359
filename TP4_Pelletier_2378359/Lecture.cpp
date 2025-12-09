@@ -235,7 +235,7 @@ vector<Fichiers> lireFichierFichiers(const string& nomFichier)
 			cout << format("Erreur : Ligne {} - contenuTexte vide.\n", compteurLigne);
 			continue;
 		}
-		fichier.permissions = tokens[6];
+		fichier.contenuTexte = tokens[6];
 
 		// TODO: Ajouter le livre au vefcteur des livres valides
 		fichiers.push_back(fichier);
@@ -246,7 +246,6 @@ vector<Fichiers> lireFichierFichiers(const string& nomFichier)
 
 	return fichiers;
 }
-
 
 void afficherMenu(const vector<Utilisateurs>& utilisateurs, vector<Dossiers>& dossier, vector<Fichiers>& fichiers) 
 {
@@ -296,16 +295,20 @@ string genererChemin2(const vector<Dossiers>& dossiers, int id, string& prompt)
 		return prompt;
 
 	}
-
-	for (int i = 0; i < dossiers.size(); i++)
+	else
 	{
-		if (dossiers[i].identifiantProprietaire == id)
+		for (int i = 0; i < dossiers.size(); i++)
 		{
-			string prompt = "\n" + dossiers[i].nomDossier + "@/" + dossiers[1].nomDossier + "/" + dossiers[i].nomDossier + ": ";
-			cout << prompt;
-			return prompt;
+			if (dossiers[i].identifiantProprietaire == id)
+			{
+				string prompt = "\n" + dossiers[i].nomDossier + "@/" + dossiers[1].nomDossier + "/" + dossiers[i].nomDossier + ": ";
+				cout << prompt;
+				return prompt;
+			}
 		}
 	}
 
 	return "";
 }
+
+
