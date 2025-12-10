@@ -56,7 +56,8 @@ vector<string> split(const string& chaine, char delimiteur)
 	while (indexDelimiteur != string::npos)
 	{
 		string token = chaine.substr(indexDebut, indexDelimiteur - indexDebut);
-		tokens.push_back(token);
+		if (!token.empty()) // ignorer tokens vides (plusieurs espaces consécutifs)
+			tokens.push_back(token);
 
 		indexDebut = indexDelimiteur + 1;
 		indexDelimiteur = chaine.find(delimiteur, indexDelimiteur + 1);
@@ -64,7 +65,8 @@ vector<string> split(const string& chaine, char delimiteur)
 
 	// Ajouter le reste de la chaine apres le dernier delimiteur jusqu'à la fin
 	string token = chaine.substr(indexDebut);
-	tokens.push_back(token);
+	if (!token.empty())
+		tokens.push_back(token);
 
 	return tokens;
 }

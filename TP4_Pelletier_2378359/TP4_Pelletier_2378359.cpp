@@ -42,9 +42,7 @@ int main()
         int idUser = rechercherUtilisateur(utilisateurs);
 
         string prompt = " ";
-        int idDossier = 0;
-        genererChemin2(dossiers, idUser, prompt);
-
+        int idDossier = 0; 
         bool session = true;
 
         while (session == true)
@@ -54,25 +52,74 @@ int main()
             string commande = "";
             verifierCommande(commande, prompt);
 
-            if (commande == "exit")
+            vector<string> tokens = split(commande, ' ');
+            string commandePrincipale;
+            if (tokens.empty())
+            {
+                commandePrincipale = "";
+            }
+            else
+            {
+                commandePrincipale = tokens[0];
+            }
+            vector<string> arguments;
+            if (tokens.size() > 1)
+            {
+                arguments.assign(tokens.begin() + 1, tokens.end());
+            }
+
+            if (commandePrincipale == "exit")
             {
                 session = false;
                 break;   // revient à la boucle écran de login
             }
-
-
-            if (commande == "help")
+            else if (commandePrincipale == "help")
             {
-                commandeExit(idUser);
+                commandeHelp(idUser);
             }
-
-            if (commande == "ls")
+            else if (commandePrincipale == "ls")
             {
                 commandeLs(dossiers, fichiers, idUser);
             }
-
-            if (commande == "cd")
+            else if (commandePrincipale == "cd")
             {
+                commandeCd(dossiers, idDossier, idUser);
+            }
+            else if (commandePrincipale == "mkdir")
+            {
+                commandeMkdir(dossiers, idDossier, idUser, arguments);
+            }
+            else if (commandePrincipale == "rmdir")
+            {
+                commandeRmdir(dossiers, idDossier, idUser, arguments);
+            }
+            else if (commandePrincipale == "touch")
+            {
+                commandeTouch(fichiers, idDossier, idUser, arguments);
+            }
+            else if (commandePrincipale == "rm")
+            {
+                commandeRm(fichiers, idDossier, idUser, arguments);
+            }
+            else if (commandePrincipale == "cat")
+            {
+                commandeCat(fichiers, idDossier, idUser, arguments);
+            }
+            else if (commandePrincipale == "tee")
+            {
+                commandeTee(fichiers, idDossier, idUser, arguments);
+            }
+            else if (commandePrincipale == "passwd")
+            {
+                commandePasswd(utilisateurs, idUser, arguments);
+            }
+            else if (commandePrincipale == "adduser")
+            {
+                commandeAdduser(utilisateurs, arguments);
+            }
+            else if (commandePrincipale == "deluser")
+            {
+                commandeDeluser(utilisateurs, arguments);
             }
         }
     }
